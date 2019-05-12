@@ -1,0 +1,36 @@
+{
+  "name": "ikonate",
+  "version": "1.0.0",
+  "description": "fully customisable, accessible, well-optimised vector icons",
+  "keywords": [
+    "icons",
+    "outline",
+    "customisable",
+    "icon system",
+    "generator",
+    "accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eucalyptuss/ikonate.git"
+  },
+  "scripts": {
+    "svgSpriteGenerate": "svg-sprite-generate -d ./icons -o ./sprite/ikonate.svg",
+    "generate:sprite": "node -e \"require('./scripts/createSvgSpritesheet.js')()\"",
+    "generate:html": "node -e \"require('./scripts/generateHTML')()\"",
+    "demo:dir": "node scripts/createBuildDir.js",
+    "demo:sprite": "npm run generate:sprite save && npm run generate:html sprite save saveCatalog=build/sprite",
+    "demo:inline": "npm run generate:html inline save saveCatalog=build/inline",
+    "build": "run-s demo:**"
+  },
+  "author": "Mikolaj Dobrucki <tease@mikolajdobrucki.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "11.10.0",
+    "npm-run-all": "^4.1.3",
+    "pretty": "^2.0.0",
+    "svg-sprite-generator": "0.0.7",
+    "xmldom": "^0.1.27",
+    "minimist": "^1.2.0"
+  }
+}
